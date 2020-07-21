@@ -1,0 +1,11 @@
+{
+  "name": "env2url",
+  "version": "1.0.0",
+  "description": "Take env vars and send them as parameters to a url",
+  "main": "env2url.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Burke",
+  "license": "ISC"
+}
