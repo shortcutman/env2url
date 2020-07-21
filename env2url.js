@@ -1,5 +1,13 @@
-var querystring = require('querystring')
-var http = require('http')
+const querystring = require('querystring')
+const http = require('http')
+
+const commandLineArgs = require('command-line-args')
+const cmdlineDefinitions = [
+  { name: 'host', type: String },
+  { name: 'port', type: Number },
+  { name: 'path', type: String }
+]
+const cmdArgs = commandLineArgs(cmdlineDefinitions)
 
 const filteredEnv = Object.keys(process.env)
   .filter(key => !key.startsWith('npm_'))
@@ -12,9 +20,9 @@ console.log(filteredEnv)
 var envData = querystring.stringify(filteredEnv);
 
 var options = {
-  host: 'localhost',
-  port: '8111',
-  path: '/raspotify',
+  host: cmdArgs.host,
+  port: cmdArgs.port,
+  path: cmdArgs.path,
   method: 'POST',
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded',
